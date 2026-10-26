@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* UNMUTE DUO brand palette */
+    --navy: #171d36;
+    --coral: #e87569;
+    --ivory: #f6f3eb;
+    --beige: #e9dfd0;
+    --border: #e4e0d8;
+
+    --foreground: #292929;
+    --muted: #686868;
+
+    /* shadcn-compatible tokens mapped to brand */
+    --background: 39 43% 95%; /* ivory */
+    --foreground: 222 33% 18%; /* navy-ish */
+    --card: 0 0% 100%;
+    --card-foreground: 222 33% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 33% 18%;
+    --primary: 222 38% 16%; /* navy */
+    --primary-foreground: 39 43% 95%;
+    --secondary: 33 33% 86%; /* beige */
+    --secondary-foreground: 222 33% 18%;
+    --muted: 33 25% 90%;
+    --muted-foreground: 0 0% 41%;
+    --accent: 12 76% 66%; /* coral */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 22% 86%;
+    --input: 36 22% 86%;
+    --ring: 12 76% 66%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-primary;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+  .section-title {
+    @apply font-heading text-3xl font-bold tracking-tight text-primary sm:text-4xl;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .motion-reduce-safe {
+    @media (prefers-reduced-motion: reduce) {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
